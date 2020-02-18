@@ -17,7 +17,7 @@ def main():
 
     save_file.close()
 
-
+    return
 
 #print board
 def print_board(chess_board):
@@ -28,7 +28,14 @@ def print_board(chess_board):
 
         print(each_line)
 
-#create a knight class
+    return
+
+def not_finished():
+    #in dev
+
+    return
+
+#create a knight class with functions to help move the knight with implemented back tracking
 class Knight:
     def __init__(self, x, y, chess_board):
         self.x = x
@@ -36,17 +43,22 @@ class Knight:
         self.chess_board = chess_board
         self.stack = []
 
-    def move(self):
-        #in dev
+        return
 
-    def choose_move(self):
-        #in dev
+    def move(self, x, y, chess_board):
+        #checks the board bounds and size to make sure knight will not be out of bound
+        if(x >= 0 and y >= 0 and x < 8 and y < 8 and chess_board[x][y] == -1):
+            return True
+        
+        if():
+
+        return
 
     def backtrack(self):
         #in dev
+        if():
 
-def not_finished():
-    #in dev
+        return
 
 class Node:
     #in dev, define head node
