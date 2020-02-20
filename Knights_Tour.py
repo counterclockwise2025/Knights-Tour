@@ -10,6 +10,8 @@ def main():
     save_file = open("Tour.txt", 'w')
     xMove = input("What is your x move for the Knight: ")
     yMove = input("What is your y move for the Knight: ")
+    #do not know if this line is even correct on storing the value in the LinkedList
+    SingleLinkedList(xMove, yMove)
 
     not_done = True
     while not_done:
@@ -49,6 +51,7 @@ class Knight:
         #checks the board bounds and size to make sure knight will not be out of bound
         if(x >= 0 and y >= 0 and x < 8 and y < 8 and chess_board[x][y] == -1):
             return True
+        return False
         
         if():
 
@@ -61,7 +64,7 @@ class Knight:
         return
 
 class Node:
-    #in dev, define head node
+    #in dev
     def __init__(self, data):
         self.data = data
         self.next_node = None
