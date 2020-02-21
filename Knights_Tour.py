@@ -117,7 +117,7 @@ if __name__ == '__main__':
     lst = SingleLinkedList()
     res = ''
 
-    while res != 'EXIT':
+    while res != 'START':
 
         intro = """
         Welcome to the Knights Tour, this program will show you the shortest path the Knight piece will take from your desired start position. Things to note are...
@@ -135,7 +135,7 @@ if __name__ == '__main__':
             y_move = int(input("What is your Y coordinate start position for the Knight: "))
 
         lst.add((x_move - 1, y_move - 1))
-        res = input("Type EXIT to leave the program and watch the tour, or press ENTER to start a new tour. ")
+        res = input("Type START to watch the tour, or press ENTER to enter a new X and Y coordinate: ")
 
     while lst.head is not None:
         col, row = lst.get_head().data #tuple, unpacking values from initial position tuple 
