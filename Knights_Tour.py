@@ -142,6 +142,7 @@ if __name__ == '__main__':
         lst.delete_head()
         chess_board = [['*' for row in range (8)] for col in range (8)]
         k = Knight(col, row, chess_board) 
+        #implement the Warndorff Huresitic here
         '''
         for in range 32:
             moves.k.find_moves
