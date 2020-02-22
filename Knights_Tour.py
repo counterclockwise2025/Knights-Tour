@@ -54,7 +54,16 @@ class Knight:
             if col + x_move < 8 and col + x_move > -1 and row + y_move < 8 and row + y_move > -1 and self.chess_board[col + x_move][row + y_move] == '*':
                 moves.append((col + x_move, row + y_move)) #add this to the moves array since it can be done after this check
         return moves #returns the moves array at the end with all possible moves
-    
+    '''
+    def degree(self, moves, col, row):
+        deg_count = 0
+        for square in range 8:
+
+    def best_move(self, moves):
+        for bm in moves:
+            x_move, y_move = bm
+            if bm 
+    '''
     #uses the moves array to actually move the knight piece by random
     def make_move(self, moves):
         #looks at the array of possible moves and picks a random tuple as it's move
@@ -85,23 +94,28 @@ class Knight:
             col, row = element
             self.chess_board[col][row] = '*' #set whatever was backtracked to unvisited
 
+#create the node itself
 class Node:
     def __init__(self, data = None):
         self.data = data
-        self.next_node = None
+        self.next_node = None #setting the next node to null
 
+#creating a single linked list
 class SingleLinkedList:
     def __init__(self, head = None):
         self.head = head
         self.item = Node
     
+    #returns the head
     def get_head(self):
         return self.head
 
+    #breaks the link of the previous head and makes the next node the head
     def delete_head(self):
         if self.head is not None:
             self.head = self.head.next_node
 
+    #adding a new head to the linked list
     def add(self, item):
         if self.head is not None:
             current = self.head
@@ -113,14 +127,13 @@ class SingleLinkedList:
 
 #define the main program and create a 2D array for the chest board
 if __name__ == '__main__':
-    save_file = open("Tour.txt", 'w')
     lst = SingleLinkedList()
     res = ''
 
-    while res != 'START':
-
+    while res != 'EXIT':
+        save_file = open("Tour.txt", 'w')
         intro = """
-        Welcome to the Knights Tour, this program will show you the shortest path the Knight piece will take from your desired start position. Things to note are...
+        Welcome to the Knights Tour, this program will give you a result of the Knights Tour from your desired input. Things to note are...
 
         * - unvisited square
         v - knight has visited
@@ -135,7 +148,7 @@ if __name__ == '__main__':
             y_move = int(input("What is your Y coordinate start position for the Knight: "))
 
         lst.add((x_move - 1, y_move - 1))
-        res = input("Type START to watch the tour, or press ENTER to enter a new X and Y coordinate: ")
+        res = input("Type EXIT to see your result, or press ENTER to enter a new X and Y coordinate: ")
 
     while lst.head is not None:
         col, row = lst.get_head().data #tuple, unpacking values from initial position tuple 
@@ -155,10 +168,8 @@ if __name__ == '__main__':
                 k.make_move(moves) #picking moves and adding to the stack
             else:
                 k.backtrack() #going back to find a possible move that is valid
-            print_board(chess_board) #print the board each time a move is made
-            #add spacing between borad prints
-            print()
-            print()
+        print("Back Tracking result... \n")
+        print_board(chess_board) #print the board each time a move is made
 
-        save_file.close()
+    save_file.close()
         
