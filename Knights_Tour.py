@@ -131,7 +131,6 @@ if __name__ == '__main__':
     res = ''
 
     while res != 'EXIT':
-        save_file = open("Tour.txt", 'w')
         intro = """
         Welcome to the Knights Tour, this program will give you a result of the Knights Tour from your desired input. Things to note are...
 
@@ -140,13 +139,23 @@ if __name__ == '__main__':
         k - current position of the knight
         """
         print(intro)
-        x_move = int(input("What is your X coordinate start position for the Knight: "))
-        y_move = int(input("What is your Y coordinate start position for the Knight: "))
-
-        while x_move < 1 and x_move > 8 and y_move < 1 and y_move > 8:
+        try:
             x_move = int(input("What is your X coordinate start position for the Knight: "))
             y_move = int(input("What is your Y coordinate start position for the Knight: "))
+        
+        except ValueError:
+            print("Sorry...numbers only... ")
+            SystemExit
 
+        while x_move < 1 and x_move > 8 and y_move < 1 and y_move > 8:
+            try:
+                x_move = int(input("What is your X coordinate start position for the Knight: "))
+                y_move = int(input("What is your Y coordinate start position for the Knight: "))
+
+            except ValueError:
+                print("Sorry...numbers only... ")
+                SystemExit
+                
         lst.add((x_move - 1, y_move - 1))
         res = input("Type EXIT to see your result, or press ENTER to enter a new X and Y coordinate: ")
 
@@ -171,5 +180,4 @@ if __name__ == '__main__':
         print("Back Tracking result... \n")
         print_board(chess_board) #print the board each time a move is made
 
-    save_file.close()
         
